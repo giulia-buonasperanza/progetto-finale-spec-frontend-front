@@ -5,17 +5,19 @@ import { useState } from "react";
 
 function GamesPage() {
   const { games, loading, error } = useGames();
+  
   const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const filteredGames = games.filter((game) => {
 
     const matchesSearch = game.title.toLowerCase().includes(search.toLowerCase());
 
-    const matchesCategory= selectedCategory === "" || game.category === selectedCategory;
+    const matchesCategory = selectedCategory === "" || game.category === selectedCategory;
 
     return matchesSearch && matchesCategory;
-  }); 
+  });
+
 
   if (loading) {
     return <h1>Caricamento in corso...</h1>;
