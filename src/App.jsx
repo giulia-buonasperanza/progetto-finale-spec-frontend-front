@@ -1,10 +1,10 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainLayout from "./layouts/MainLayout";
-import GamesPage from "./pages/GamesPage";
-import GameDetailPage from "./pages/GameDetailPage";
-import ComparePage from "./pages/ComparePage";
-import FavoritesPage from "./pages/FavoritesPage";
+import MainLayout from "./layouts/MainLayout.jsx";
+import GamesPage from "./pages/GamesPage.jsx";
+import GameDetailPage from "./pages/GameDetailPage.jsx";
+import ComparePage from "./pages/ComparePage.jsx";
+import FavoritesPage from "./pages/FavoritesPage.jsx";
 
 function App() {
   return (
