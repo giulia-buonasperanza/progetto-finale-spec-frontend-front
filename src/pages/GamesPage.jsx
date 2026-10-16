@@ -1,6 +1,6 @@
 import GameCard from "../components/GameCard/GameCard.jsx";
 import useGames from "../hooks/useGames.js"; 
-
+import styles from "./GamesPage.module.css";
 
 function GamesPage() {
   const { games, loading, error } = useGames();
