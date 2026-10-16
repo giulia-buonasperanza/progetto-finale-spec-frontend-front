@@ -1,0 +1,14 @@
+
+.footer {
+  padding: 1.5rem 5%;
+  background-color: #243447;
+  color: #f8f5ee;
+  text-align: center;
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
