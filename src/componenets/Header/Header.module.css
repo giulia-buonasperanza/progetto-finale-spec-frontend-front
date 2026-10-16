@@ -24,6 +24,7 @@
 .nav a:hover,
 .nav a.active {
   color: #e7b65c;
+  font-weight: 600;
 }
 
 @media (max-width: 600px) {

@@ -10,15 +10,31 @@ function Header() {
       </NavLink>
 
       <nav className={styles.nav}>
-        <NavLink to="/" end>
+       <NavLink
+          to="/"
+          end
+          className={({ isActive }) =>
+            isActive ? styles.active : ""
+          }
+        >
           Catalogo
         </NavLink>
 
-        <NavLink to="/compare">
+        <NavLink
+          to="/compare"
+          className={({ isActive }) =>
+            isActive ? styles.active : ""
+          }
+        >
           Comparatore
         </NavLink>
 
-        <NavLink to="/favorites">
+       <NavLink
+          to="/favorites"
+          className={({ isActive }) =>
+            isActive ? styles.active : ""
+          }
+        >
           Preferiti
         </NavLink>
       </nav>
