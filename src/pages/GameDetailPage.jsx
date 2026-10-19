@@ -1,35 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {Link} from "react-router-dom";
+import useGameId from "../hooks/useGameId";
 
 
 function GameDetailPage() {
 
   const { id } = useParams();
-  const [game, setGame] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function fetchGame() {
-      try {
-        const response = await fetch(`http://localhost:3001/games/${id}`);
-
-        if (!response.ok) {
-          throw new Error("Errore nel recupero del gioco");
-        }
-
-        const data = await response.json();
-        setGame(data.game);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchGame();
-  }, [id]);
+  const {game, loading, error} = useGameId(id);
 
   if (loading) return <p>Caricamento del gioco...</p>;
 
