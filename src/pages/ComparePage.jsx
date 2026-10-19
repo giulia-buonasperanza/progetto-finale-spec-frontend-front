@@ -61,11 +61,13 @@ function ComparePage() {
       >
         <option value="">Seleziona un gioco</option>
 
-        {games.map((game) => (
-          <option key={game.id} value={game.id}>
-            {game.title}
-          </option>
-        ))}
+        {games
+          .filter((game) => String(game.id) !== firstGameId)
+          .map((game) => (
+            <option key={game.id} value={game.id}>
+              {game.title}
+            </option>
+          ))}
       </select>
 
 
