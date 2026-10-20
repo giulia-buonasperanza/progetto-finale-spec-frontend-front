@@ -5,9 +5,11 @@ import GamesPage from "./pages/GamesPage.jsx";
 import GameDetailPage from "./pages/GameDetailPage.jsx";
 import ComparePage from "./pages/ComparePage.jsx";
 import FavoritesPage from "./pages/FavoritesPage.jsx";
+import { FavoritesProvider } from "./contexts/FavoritesContext.jsx";
 
 function App() {
   return (
+    <FavoritesProvider>
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
@@ -18,6 +20,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
+    </FavoritesProvider>
   );
 }
 
