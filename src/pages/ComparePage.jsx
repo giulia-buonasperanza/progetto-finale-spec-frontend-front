@@ -1,12 +1,19 @@
 import useGames from "../hooks/useGames";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import GameComparison from "../components/GameComparison/GameComparison";
 import useGameId from "../hooks/useGameId";
 
 function ComparePage() {
   const { games, loading, error } = useGames();
+  
   const [firstGameId, setFirstGameId] = useState("");
   const [secondGameId, setSecondGameId] = useState("");
+
+  useEffect (() =>{
+    if (firstGameId && firstGameId === secondGameId) {
+      setSecondGameId("");
+    }
+  }, [firstGameId, secondGameId]);
 
   const {
     game: firstGame,

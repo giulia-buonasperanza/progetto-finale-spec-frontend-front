@@ -5,9 +5,11 @@ import { useState } from "react";
 
 function GamesPage() {
   const { games, loading, error } = useGames();
-  
+
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [sortBy, setSortBy] = useState("title");
+  const [sortOrder, setSortOrder] = useState("asc");
 
   const filteredGames = games.filter((game) => {
 
@@ -16,6 +18,14 @@ function GamesPage() {
     const matchesCategory = selectedCategory === "" || game.category === selectedCategory;
 
     return matchesSearch && matchesCategory;
+  });
+
+  const sortedGames = [...filteredGames].sort((a, b) => {
+    const comparison = a[sortBy].localeCompare(b[sortBy], "it", {
+      sensitivity: "base",
+    });
+
+    return sortOrder === "asc" ? comparison : -comparison;
   });
 
 
@@ -51,11 +61,31 @@ function GamesPage() {
         <option value="Party game">Party game</option>
       </select>
 
+      <label htmlFor="sortBy">Ordina per:</label>
+      <select
+        id="sortBy"
+        value={sortBy}
+        onChange={(event) => setSortBy(event.target.value)}
+      >
+        <option value="title">Titolo</option>
+        <option value="category">Categoria</option>
+      </select>
+
+      <label htmlFor="sortOrder">Ordinamento:</label>
+      <select
+        id="sortOrder"
+        value={sortOrder}
+        onChange={(event) => setSortOrder(event.target.value)}
+      >
+        <option value="asc">Crescente (A–Z)</option>
+        <option value="desc">Decrescente (Z–A)</option>
+      </select>
+
       {filteredGames.length === 0 ? (
         <p>Non ci sono giochi disponibili.</p>
       ) : (
         <div className={styles.flexContainer}>
-          {filteredGames.map((game) => (
+          {sortedGames.map((game) => (
             <GameCard key={game.id} game={game} />
           ))}
         </div>
