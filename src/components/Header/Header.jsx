@@ -6,7 +6,7 @@ function Header() {
   return (
     <header className={styles.header}>
       <NavLink to="/" className={styles.logo}>
-        BoardGame Compare
+         <img src="/images/logoCompareGame.png" alt="BoardGame Compare logo" />
       </NavLink>
 
       <nav className={styles.nav}>

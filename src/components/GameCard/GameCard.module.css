@@ -1,21 +1,16 @@
 
 .card {
   padding: 1.5rem;
-  background-color: #ffffff;
-  border: 1px solid #e2ded5;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgb(0 0 0 / 10%);
+  background-color: #fff8e8;
+  border: 1px solid #e2cfad;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgb(65 50 35 / 8%);
 }
 
 .card h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
   margin: 0 0 0.75rem;
   font-size: 1.2rem;
 }
