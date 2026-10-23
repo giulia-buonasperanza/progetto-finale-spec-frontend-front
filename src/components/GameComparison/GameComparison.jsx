@@ -1,5 +1,6 @@
 
 import styles from "./GameComparison.module.css";
+import gameImages from "../../data/gameImages";
 
 function GameComparison({ firstGame, secondGame }) {
     console.log("Primo gioco:", firstGame);
@@ -43,29 +44,46 @@ function GameComparison({ firstGame, secondGame }) {
         },
     ];
 
+    const games = [firstGame, secondGame];
+
     return (
+        
         <section className={styles.comparison}>
             <h2>Confronto tra giochi</h2>
 
-            <table className={styles.table}>
-                <thead>
-                    <tr>
-                        <th>Caratteristica</th>
-                        <th>{firstGame.title}</th>
-                        <th>{secondGame.title}</th>
-                    </tr>
-                </thead>
+            <div className={styles.gamesHeader}>
+                {games.map((game) => (
+                    <div className={styles.gameHeader} key={game.id}>
+                        <img
+                            className={styles.cover}
+                            src={gameImages[game.id]}
+                            alt={`Copertina di ${game.title}`}
+                        />
+                        <h3>{game.title}</h3>
+                    </div>
+                ))}
+            </div>
 
-                <tbody>
-                    {characteristics.map((characteristic) => (
-                        <tr key={characteristic.label}>
-                            <th scope="row">{characteristic.label}</th>
-                            <td>{characteristic.firstValue}</td>
-                            <td>{characteristic.secondValue}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+            <div className={styles.characteristics}>
+                {characteristics.map((characteristic) => (
+                    <div
+                        className={styles.characteristic}
+                        key={characteristic.label}
+                    >
+                        <h4>{characteristic.label}</h4>
+
+                        <div className={styles.values}>
+                            <div className={styles.firstValue}>
+                                {characteristic.firstValue}
+                            </div>
+
+                            <div className={styles.secondValue}>
+                                {characteristic.secondValue}
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </section>
     );
 }
