@@ -1,6 +1,7 @@
 
 import styles from "./GameComparison.module.css";
 import gameImages from "../../data/gameImages";
+import { Link } from "react-router-dom";
 
 function GameComparison({ firstGame, secondGame }) {
     console.log("Primo gioco:", firstGame);
@@ -47,19 +48,25 @@ function GameComparison({ firstGame, secondGame }) {
     const games = [firstGame, secondGame];
 
     return (
-        
+
         <section className={styles.comparison}>
-            <h2>Confronto tra giochi</h2>
 
             <div className={styles.gamesHeader}>
                 {games.map((game) => (
                     <div className={styles.gameHeader} key={game.id}>
-                        <img
-                            className={styles.cover}
-                            src={gameImages[game.id]}
-                            alt={`Copertina di ${game.title}`}
-                        />
-                        <h3>{game.title}</h3>
+                        <Link
+                            to={`/games/${game.id}`}
+                            className={styles.gameLink}
+                            aria-label={`Vai al dettaglio di ${game.title}`}
+                        >
+                            <img
+                                className={styles.cover}
+                                src={gameImages[game.id]}
+                                alt={`Copertina di ${game.title}`}
+                            />
+
+                            <h3>{game.title}</h3>
+                        </Link>
                     </div>
                 ))}
             </div>

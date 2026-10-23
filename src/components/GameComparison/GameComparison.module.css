@@ -37,6 +37,36 @@
     overflow-wrap: anywhere;
 }
 
+.gameLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  color: #315F5B;
+  text-decoration: none;
+}
+
+.gameLink h3 {
+  margin: 0;
+  color: #315F5B;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.gameLink:hover h3 {
+  text-decoration: underline;
+  text-decoration-color: #E9C978;
+  text-underline-offset: 4px;
+}
+
+.gameLink:focus-visible {
+  outline: 3px solid #C9B9D5;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+
 .cover {
     display: block;
     width: 100%;

@@ -1,0 +1,37 @@
+.selectionSection {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: rgb(255 248 232 / 94%);
+  border: 1px solid #E2CFAD;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgb(49 95 91 / 6%);
+}
+
+.selectionSection h1 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: #315F5B;
+}
+
+.selectionSection p {
+  margin-bottom: 1.25rem;
+  color: #315F5B;
+}
+
+.selectionSection label {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #315F5B;
+  font-weight: 600;
+}
+
+.selectionSection select {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .selectionSection {
+    padding: 1rem;
+  }
+}

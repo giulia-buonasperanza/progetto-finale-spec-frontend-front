@@ -2,14 +2,15 @@ import useGames from "../hooks/useGames";
 import { useState, useEffect } from "react";
 import GameComparison from "../components/GameComparison/GameComparison";
 import useGameId from "../hooks/useGameId";
+import styles from "./ComparePage.module.css"
 
 function ComparePage() {
   const { games, loading, error } = useGames();
-  
+
   const [firstGameId, setFirstGameId] = useState("");
   const [secondGameId, setSecondGameId] = useState("");
 
-  useEffect (() =>{
+  useEffect(() => {
     if (firstGameId && firstGameId === secondGameId) {
       setSecondGameId("");
     }
@@ -38,70 +39,53 @@ function ComparePage() {
 
   return (
     <section>
-      <h1>Confronta i giochi da tavolo</h1>
+      <div className={styles.selectionSection}>
+        <h1>CONFRONTA I GIOCHI</h1>
 
-      <p>Giochi disponibili per il confronto: {games.length}</p>
+        <p>Giochi disponibili per il confronto: {games.length}</p>
 
 
-      <label htmlFor="firstGame">Primo gioco</label>
+        <label htmlFor="firstGame">Primo gioco</label>
 
-      <select
-        id="firstGame"
-        value={firstGameId}
-        onChange={(event) => setFirstGameId(event.target.value)}
-      >
-        <option value="">Seleziona un gioco</option>
+        <select
+          id="firstGame"
+          value={firstGameId}
+          onChange={(event) => setFirstGameId(event.target.value)}
+        >
+          <option value="">Seleziona un gioco</option>
 
-        {games.map((game) => (
-          <option key={game.id} value={game.id}>
-            {game.title}
-          </option>
-        ))}
-      </select>
-
-      <label htmlFor="secondGame">Secondo gioco</label>
-
-      <select
-        id="secondGame"
-        value={secondGameId}
-        onChange={(event) => setSecondGameId(event.target.value)}
-      >
-        <option value="">Seleziona un gioco</option>
-
-        {games
-          .filter((game) => String(game.id) !== firstGameId)
-          .map((game) => (
+          {games.map((game) => (
             <option key={game.id} value={game.id}>
               {game.title}
             </option>
           ))}
-      </select>
+        </select>
 
+        <label htmlFor="secondGame">Secondo gioco</label>
 
-      <div>
-        <h2>Primo gioco selezionato</h2>
-        {firstGame ? (
-          <p>{firstGame.title}</p>
-        ) : (
-          <p>Seleziona il primo gioco.</p>
+        <select
+          id="secondGame"
+          value={secondGameId}
+          onChange={(event) => setSecondGameId(event.target.value)}
+        >
+          <option value="">Seleziona un gioco</option>
+
+          {games
+            .filter((game) => String(game.id) !== firstGameId)
+            .map((game) => (
+              <option key={game.id} value={game.id}>
+                {game.title}
+              </option>
+            ))}
+        </select>
+
+        {firstGame && secondGame && (
+          <GameComparison
+            firstGame={firstGame}
+            secondGame={secondGame}
+          />
         )}
       </div>
-
-      <div>
-        <h2>Secondo gioco selezionato</h2>
-        {secondGame ? (
-          <p>{secondGame.title}</p>
-        ) : (
-          <p>Seleziona il secondo gioco.</p>
-        )}
-      </div>
-
-      {firstGame && secondGame && (
-        <GameComparison
-          firstGame={firstGame}
-          secondGame={secondGame}
-        />
-      )}
     </section>
   );
 }
