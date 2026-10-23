@@ -1,16 +1,59 @@
-# React + Vite
+# BoardGame Compare
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una Single Page Application sviluppata con React e JavaScript per esplorare e confrontare giochi da tavolo, consultare le loro caratteristiche e salvare i propri preferiti.
 
-Currently, two official plugins are available:
+## Funzionalità
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Catalogo giochi: visualizzazione dei giochi disponibili.
+- Ricerca: ricerca dei giochi tramite titolo.
+- Filtri: selezione dei giochi in base alla categoria.
+- Ordinamento: ordinamento alfabetico per titolo o categoria, in ordine crescente o decrescente.
+- Pagina di dettaglio: visualizzazione delle caratteristiche di ogni gioco, tra cui descrizione, numero di giocatori, durata, età consigliata, complessità, prezzo e anno di pubblicazione.
+- Comparatore: confronto affiancato di due giochi per valutarne le differenze.
+- Preferiti: possibilità di aggiungere e rimuovere giochi dai preferiti, consultabili in una sezione dedicata.
+- Persistenza: salvataggio dei preferiti in localStorage, per mantenerli anche dopo il refresh della pagina.
+- Design responsive: interfaccia adattabile a diverse dimensioni dello schermo.
 
-## React Compiler
+## Tecnologie utilizzate
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- JavaScript
+- Vite
+- React Router DOM
+- CSS Modules
+- Context API
+- Custom Hooks
+- Fetch API
+- localStorage
 
-## Expanding the ESLint configuration
+## Struttura del progetto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Il frontend è organizzato in componenti riutilizzabili, pagine, hook personalizzati e un context per la gestione dei preferiti.
+
+src/components/: componenti riutilizzabili dell'interfaccia.
+
+src/pages/: pagine principali dell'applicazione.
+
+src/hooks/: hook personalizzati per il recupero dei dati.
+
+src/contexts/: gestione dello stato condiviso.
+
+src/layouts/: layout principale dell'applicazione.
+
+src/data/gameImages.js: associazione tra gli ID dei giochi e i percorsi delle copertine.
+
+public/images/games/: immagini utilizzate nell'applicazione.
+
+## Gestione delle immagini
+
+Il modello Game, definito nel file types.ts del backend, include anche la proprietà image, pensata per rappresentare l'immagine associata a un gioco.
+
+Nel frontend, le copertine vengono attualmente gestite tramite gameImages.js, che associa a ogni ID il relativo percorso dell'immagine.
+
+Questa soluzione permette di mostrare le copertine anche nel catalogo, mantenendo invariato il comportamento del backend fornito. La proprietà image rimane disponibile nel modello dei dati per eventuali sviluppi futuri.
+
+## File di supporto
+
+Per rendere più chiara la struttura dei dati utilizzati dal progetto e facilitare la consultazione del materiale in fase di valutazione, ho incluso nella repository frontend anche il file types.ts e la cartella database, contenente game.json.
+
+Questi file sono una copia di quelli presenti nel backend fornito per l'esercitazione e vengono mantenuti nel frontend a scopo documentale. La gestione delle richieste API continua a fare riferimento al backend.
