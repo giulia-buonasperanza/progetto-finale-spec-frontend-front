@@ -18,12 +18,13 @@ function GameCard({ game }) {
       <p className={styles.category}>
         {game.category}
       </p>
-
-      <img
-        src={gameImages[game.id]}
-        alt={`Copertina di ${game.title}`}
-        className={styles.cover}
-      />
+      <div className={styles.coverContainer}>
+        <img
+          src={gameImages[game.id]}
+          alt={`Copertina di ${game.title}`}
+          className={styles.cover}
+        />
+      </div>
 
 
       <button
