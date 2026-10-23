@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useGameId from "../hooks/useGameId";
 import { useFavorites } from "../contexts/FavoritesContext";
-
+import gameImages from "../data/gameImages";
 
 function GameDetailPage() {
 
@@ -19,11 +19,17 @@ function GameDetailPage() {
   if (!game) return <p>Gioco non trovato.</p>;
 
   const favorite = isFavorite(game.id);
-  
+
   return (
     <section>
       <Link to="/">← Torna al catalogo</Link>
       <h1>{game.title}</h1>
+
+      <img
+        src={gameImages[game.id]}
+        alt={`Copertina di ${game.title}`}
+       
+      />
 
       <p><strong>Categoria:</strong> {game.category}</p>
       <p><strong>Descrizione:</strong> {game.description}</p>

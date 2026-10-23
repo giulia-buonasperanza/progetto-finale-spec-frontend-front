@@ -2,11 +2,12 @@
 import styles from "./GameCard.module.css";
 import { Link } from "react-router-dom";
 import { useFavorites } from "../../contexts/FavoritesContext";
+import gameImages from "../../data/gameImages.js";
 
 function GameCard({ game }) {
   const { toggleFavorite, isFavorite } = useFavorites();
   const favorite = isFavorite(game.id);
-  
+
   return (
     <article className={styles.card}>
       <h2>
@@ -14,10 +15,16 @@ function GameCard({ game }) {
           {game.title}
         </Link>
       </h2>
-
       <p className={styles.category}>
         {game.category}
       </p>
+
+      <img
+        src={gameImages[game.id]}
+        alt={`Copertina di ${game.title}`}
+        className={styles.cover}
+      />
+
 
       <button
         type="button"
