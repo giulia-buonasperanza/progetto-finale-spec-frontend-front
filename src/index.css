@@ -20,7 +20,7 @@ body {
     background-repeat: repeat;
     background-size: 800px auto;
     background-position: top left;
-    color: #263238;
+    color:#315F5B;
 }
 
 h1,
@@ -30,7 +30,7 @@ h4,
 h5,
 h6 {
     font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
+
 }
 
 a {
@@ -58,6 +58,86 @@ textarea {
     padding: 2rem 5%;
     flex: 1;
 }
+
+
+
+/*  pulsanti */
+button {
+  padding: 0.7rem 1.2rem;
+  border: 2px solid #315F5B;
+  border-radius: 999px;
+  background-color: #315F5B;
+  color:#C9B9D5;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #E9C978;
+  color: #315F5B;
+  transform: translateY(-2px);
+}
+
+
+button:focus-visible {
+  outline: 3px solid #C9B9D5;
+  outline-offset: 3px;
+}
+
+
+button:active {
+  transform: translateY(0);
+}
+
+
+
+/* Input e select */
+input,
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #A8C9C2;
+  border-radius: 14px;
+  background-color: #FFF8E8;
+  color: #315F5B;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+input::placeholder{
+  color: #738782;
+  opacity: 1;
+}
+
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #E9C978;
+  box-shadow: 0 0 0 3px rgb(233 201 120 / 25%);
+}
+
+
+select {
+  cursor: pointer;
+}
+
+
+select option {
+  background-color: #FFF8E8;
+  color: #315F5B;
+}
+
 
 @media (max-width: 900px) {
     .main-content {
