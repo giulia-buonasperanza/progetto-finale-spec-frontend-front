@@ -6,6 +6,7 @@ import GameDetailPage from "./pages/GameDetailPage.jsx";
 import ComparePage from "./pages/ComparePage.jsx";
 import FavoritesPage from "./pages/FavoritesPage.jsx";
 import { FavoritesProvider } from "./contexts/FavoritesContext.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
           <Route path="/games/:id" element={<GameDetailPage />} />
           <Route path="/compare" element={<ComparePage />} />
           <Route path="/favorites" element={<FavoritesPage />} />
+
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
