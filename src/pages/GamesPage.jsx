@@ -30,12 +30,36 @@ function GamesPage() {
 
 
   if (loading) {
-    return <h1>Caricamento in corso...</h1>;
+    return (
+      <section className={styles.feedback}>
+        <p className={styles.feedbackIcon}>🎲</p>
+        <h1>Prepariamo il tabellone...</h1>
+        <p className={styles.feedbackMessage}>
+          Stiamo caricando i giochi per te.
+        </p>
+      </section>
+    );
   }
 
   if (error) {
-    return <p>Errore: {error}</p>
+    return (
+      <section className={styles.feedback}>
+        <p className={styles.feedbackIcon}>⚠️</p>
+        <h1>Ops! Qualcosa è andato storto.</h1>
+        <p className={styles.feedbackMessage}>
+          Non siamo riusciti a caricare il catalogo.
+          Controlla la connessione e riprova tra poco.
+        </p>
+        <button
+          className={styles.backLink}
+          onClick={() => window.location.reload()}
+        >
+          Riprova
+        </button>
+      </section>
+    );
   }
+
 
   return (
     <section>
@@ -90,7 +114,22 @@ function GamesPage() {
         </div>
       </div>
       {filteredGames.length === 0 ? (
-        <p>Non ci sono giochi disponibili.</p>
+        <div className={styles.feedback}>
+          <p className={styles.feedbackIcon}>🔎</p>
+          <h2>Nessun gioco trovato.</h2>
+          <p className={styles.feedbackMessage}>
+            Prova a modificare la ricerca o a selezionare un'altra categoria.
+          </p>
+          <button
+            className={styles.backLink}
+            onClick={() => {
+              setSearch("");
+              setSelectedCategory("");
+            }}
+          >
+            Mostra tutti i giochi
+          </button>
+        </div>
       ) : (
         <div className={styles.flexContainer}>
           {sortedGames.map((game) => (

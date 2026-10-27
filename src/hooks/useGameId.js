@@ -23,6 +23,11 @@ function useGameId(id) {
           `http://localhost:3001/games/${id}`
         );
 
+        if (response.status === 404) {
+          setGame(null);
+          return;
+        }
+
         if (!response.ok) {
           throw new Error("Errore nel recupero del gioco");
         }

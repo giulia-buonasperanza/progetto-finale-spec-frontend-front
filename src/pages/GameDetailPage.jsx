@@ -14,11 +14,46 @@ function GameDetailPage() {
   const { toggleFavorite, isFavorite } = useFavorites();
 
 
-  if (loading) return <p>Caricamento del gioco...</p>;
+  if (loading) {
+    return (
+      <p className={styles.feedbackLoading}>
+        Caricamento del gioco...
+      </p>
+    );
+  }
 
-  if (error) return <p>Errore: {error}</p>;
+  if (error) {
+    return (
+      <section className={styles.feedback}>
+        <p className={styles.feedbackIcon}>⚠️</p>
+        <h1>Ops! Qualcosa è andato storto.</h1>
+        <p className={styles.feedbackMessage}>
+          Non siamo riusciti a caricare i dettagli del gioco.
+          Riprova tra poco!
+        </p>
+        <Link to="/" className={styles.backLink}>
+          ← Torna al catalogo
+        </Link>
+      </section>
+    );
+  }
 
-  if (!game) return <p>Gioco non trovato.</p>;
+  if (!game) {
+    return (
+      <section className={styles.feedback}>
+        <p className={styles.feedbackIcon}>🎲</p>
+        <h1>Ops! Questo gioco non esiste.</h1>
+        <p className={styles.feedbackMessage}>
+          Forse si è perso tra le caselle del tabellone.
+        </p>
+        <Link to="/" className={styles.backLink}>
+          ← Torna al catalogo
+        </Link>
+      </section>
+    );
+  }
+
+
 
   const favorite = isFavorite(game.id);
 

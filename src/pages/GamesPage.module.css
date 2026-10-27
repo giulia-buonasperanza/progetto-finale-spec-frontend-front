@@ -51,6 +51,73 @@
 }
 
 
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 45vh;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.feedbackIcon {
+  margin: 0 0 0.5rem;
+  font-size: 3.5rem;
+}
+
+.feedback h1,
+.feedback h2 {
+  margin: 0.5rem 0 1rem;
+  color: #315F5B;
+  font-family: "Quicksand", sans-serif;
+}
+
+.feedback h1 {
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+}
+
+.feedback h2 {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+}
+
+.feedbackMessage {
+  max-width: 480px;
+  margin: 0 0 2rem;
+  color: #5F6258;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.3rem;
+  border: 1px solid #A8C9C2;
+  border-radius: 999px;
+  background-color: #E1EEEA;
+  color: #315F5B;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.backLink:hover {
+  background-color: #D3E6E0;
+}
+
+.backLink:focus-visible {
+  outline: 3px solid #E9C978;
+  outline-offset: 3px;
+}
+
+
+
+
 @media (max-width: 900px) {
   .flexContainer > * {
     flex-basis: calc((100% - 1.25rem) / 2);
